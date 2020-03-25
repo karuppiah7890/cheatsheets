@@ -1,6 +1,6 @@
 # Stolon
 
-This is my cheatsheet for anything related to GitLab
+This is my cheatsheet for anything related to Stolon
 
 1. How do I connect to my Postgres server of a Stolon cluster?
 
