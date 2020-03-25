@@ -1,3 +1,5 @@
+# GitLab
+
 This is my cheatsheet for anything related to GitLab
 
 1. How do I find what edition of GitLab I'm interacting with?
