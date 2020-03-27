@@ -35,3 +35,14 @@ Use `Command + Down arrow` for bottom
 Use `Option + Right arrow` for navigating word by word to the right
 Use `Option + Left arrow` for navigating word by word to the left
 
+7. I try to update my Mac OS version using `Software Update` and click
+`Update Now`. It does restart, but it never updates or gives any error! Why is
+that?
+
+I have noticed this to happen some two times now. I suspected the disk storage
+space to be the issue - the OS not having enough free disk space in the system
+to do it's upgrade automatically or even when you trigger manually. I fixed
+this by checking my disk usage using `Disk Utility` and `Storage Management`.
+Decrease it as much as possible to create more free disk space. The last time I
+tried to upgrade, I made sure I had at least 15 - 16 GB free disk space - that
+did the trick!
