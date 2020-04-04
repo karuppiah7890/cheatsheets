@@ -98,7 +98,7 @@ more. You can also create custom IAM roles which you can list like this
 $ gcloud --project <gcp-project-id> iam roles list
 ```
 
-* How do I describe an IAM role?
+* How do I describe a custom IAM role?
 
 ```
 $ gcloud --project <gcp-project-id> iam roles describe <role-name>
@@ -284,17 +284,100 @@ command does before you run it and check about the stability of it if possible
 as these are alpha and beta features and there's a reason it's not in the
 stable (without alpha, beta) yet! :)
 
+* How to list all the service accounts in a project?
+
+This gives the service account names and their email IDs
+```
+$ gcloud --project <gcp-project-id> iam service-accounts list
+```
+
+* How to describe a service account in a project?
+
+```
+$ gcloud --project <gcp-project-id> iam service-accounts describe <service-account-email-id>
+```
+
 * How to create a service account?
 
-* How to create and download the key.json / credentials file for the service
+```
+$ gcloud --project <gcp-project-id> iam service-accounts create <service-account-name> --display-name <aesthetic-display-name> --description <description-about-the-service-account>
+```
+
+* How to list all the keys for a service account?
+
+This is lists the Key IDs and when the key was created at and when it expires
+at.
+
+```
+$ gcloud --project <gcp-project-id> iam service-accounts keys list --iam-account <service-account-email-id>
+```
+
+* How to create and download the key.json / credentials file for a service
 account?
+
+```
+$ gcloud --project <gcp-project-id> iam service-accounts keys create <path-to-download-key-json-file> --iam-account <service-account-email-id>
+```
 
 * How to create a role?
 
+```
+$ gcloud --project <gcp-project-id> iam roles create <role-name> --permissions <list-of-permissions>
+```
+
+You can get permission names from here https://cloud.google.com/iam/docs/permissions-reference
+
+An example for the command is
+
+```
+$ gcloud --project some-project-id-01 iam roles create a-new-role --permissions compute.snapshots.create,compute.disks.createSnapshot,compute.disks.list,container.clusters.list,container.clusters.get
+```
+
 * How to assign a role to a service account?
+
+`<role>` can be a custom role or a default role that GCP provides. If it's a
+custom role created by the user, then this is how the role needs to be referred
+to - `projects/<gcp-project-id>/roles/<role-name>`. If it's a built in role,
+for example `Viewer`, use `roles/viewer` and that should work!
+
+There are two ways to do this. One way is -
+
+```
+$ gcloud projects add-iam-policy-binding <gcp-project-id> --member serviceAccount:<service-account-email-id> --role <role>
+```
+
+Another way is -
+
+```
+$ gcloud iam service-accounts add-iam-policy-binding --member serviceAccount:<service-account-email-id> --role <role>
+```
 
 * How to assign a role to a user?
 
-* How to take disk snapshots?
+This is similar to assigning a role to service account, instead this time,
+instead of mentioning `serviceAccount`, use `user` to denote it's a user and
+then use the user's email ID. See below on how to do this
 
-* How to delete disk snapshots?
+```
+$ gcloud projects add-iam-policy-binding <gcp-project-id> --member user:<service-account-email-id> --role <role>
+```
+
+* How to take disk snapshots in a project?
+
+You can take snapshots of multiple disks like this
+
+```
+$ gcloud --project <gcp-project-id> compute disks snapshot <disk-name-1> <disk-name-2> <disk-name-3> --snapshot-names <snapshot-name-1>,<snapshot-name-2>,<snapshot-name-3>
+```
+
+* How to list disk snapshots in a project?
+
+```
+$ gcloud --project <gcp-project-id> compute snapshots list
+```
+
+* How to delete disk snapshots in a project?
+
+```
+$ gcloud --project <gcp-project-id> compute snapshots delete <snapshot-name>
+```
