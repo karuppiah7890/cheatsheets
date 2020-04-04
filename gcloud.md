@@ -66,8 +66,14 @@ $ gcloud --project <gcp-project-id> compute instances list
 
 * How do I connect to my kubernetes cluster?
 
-Depending on if it's a zonal or regional cluster, you will need to specify
-`--zone` or `--region` appropriately
+To connect to a kubernetes cluster, you will need a kubernetes config file which
+has details on how to connect to the kubernetes API server. You can use the
+below command to obtain your kubernetes config file! Depending on if it's a
+zonal or regional cluster, you will need to specify `--zone` or `--region`
+appropriately
+
+The default kubernetes config file path is `$HOME/.kube/config`, if you want to
+change it, set the `KUBECONFIG` environment variable
 
 ```
 $ gcloud --project <gcp-project-id> container clusters get-credentials <gke-cluster-name> [--zone <zone-name> | --region <region-name>]
