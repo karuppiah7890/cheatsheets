@@ -2,6 +2,16 @@
 
 This is my cheatsheet for anything related to `gcloud`
 
+* How do I login to run gcloud commands to interact with GCP APIs as me?
+
+```
+$ gcloud auth login
+```
+
+It will open up your browser, then you can login to your google account that you
+use for your GCP projects and then that's it! :) It's an interactive and easy
+login
+
 * How do I check the account that I'm currently using?
 
 ```
@@ -273,3 +283,18 @@ features using `gcloud alpha` and `gcloud beta` :) Make sure you know what a
 command does before you run it and check about the stability of it if possible
 as these are alpha and beta features and there's a reason it's not in the
 stable (without alpha, beta) yet! :)
+
+* How to create a service account?
+
+* How to create and download the key.json / credentials file for the service
+account?
+
+* How to create a role?
+
+* How to assign a role to a service account?
+
+* How to assign a role to a user?
+
+* How to take disk snapshots?
+
+* How to delete disk snapshots?
