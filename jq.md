@@ -63,7 +63,69 @@ $ jq . dummy.json -c
 
 * How to join multiple JSON objects into an array?
 
+Pipe the command output to `jq` again with the slurp flag `--slurp` or `-s`
+
+```
+$ cat dummy.json
+[{"name":"Karuppiah","age":25},{"name":"Joseph","age":29},{"name":"Kevin","age":30}]
+
+$ cat dummy.json | jq '.[]'
+{
+  "name": "Karuppiah",
+  "age": 25
+}
+{
+  "name": "Joseph",
+  "age": 29
+}
+{
+  "name": "Kevin",
+  "age": 30
+}
+
+$ # now the above is a stream of multiple JSON objects.
+$ # but they are not in a list. to put them in a list, do this.
+$ cat dummy.json | jq '.[]' | jq -s
+[
+  {
+    "name": "Karuppiah",
+    "age": 25
+  },
+  {
+    "name": "Joseph",
+    "age": 29
+  },
+  {
+    "name": "Kevin",
+    "age": 30
+  }
+]
+```
+
 * How to form custom JSON as output?
+
+You can do piping within `jq`'s input and create JSON objects with it!
+
+```
+$ cat dummy.json
+[{"name":"Karuppiah","age":25},{"name":"Joseph","age":29},{"name":"Kevin","age":30}]
+
+$ cat dummy.json | jq '.[] | { personName: .name, personAge: .age}' | jq -s
+[
+  {
+    "personName": "Karuppiah",
+    "personAge": 25
+  },
+  {
+    "personName": "Joseph",
+    "personAge": 29
+  },
+  {
+    "personName": "Kevin",
+    "personAge": 30
+  }
+]
+```
 
 * How to do string interpolation?
 
@@ -138,5 +200,87 @@ Kevin
 
 * How to do a mapping using one array, to form another array?
 
+You can do this in two ways. A lot of times I have used the below way
+
+```
+$ cat dummy.json
+[{"name":"Karuppiah","age":25},{"name":"Joseph","age":29},{"name":"Kevin","age":30}]
+
+$ cat dummy.json | jq '.[] | { personName: .name, personAge: .age}' | jq -s
+[
+  {
+    "personName": "Karuppiah",
+    "personAge": 25
+  },
+  {
+    "personName": "Joseph",
+    "personAge": 29
+  },
+  {
+    "personName": "Kevin",
+    "personAge": 30
+  }
+]
+```
+
+As you can see above, I have mapped from one array of objects to another.
+Another way to do this would be to use the `map` function
+
+```
+$ cat dummy.json | jq 'map({ personName: .name, personAge: .age})'
+[
+  {
+    "personName": "Karuppiah",
+    "personAge": 25
+  },
+  {
+    "personName": "Joseph",
+    "personAge": 29
+  },
+  {
+    "personName": "Kevin",
+    "personAge": 30
+  }
+]
+```
+
+Not sure what's the difference between the two.
+
 * How to do a flat map (map with filter) using one array, to form another array?
 
+Again, similar to map, this can be done in two ways. I have done this in the
+below way a lot of times
+
+```
+$ cat dummy.json
+[{"name":"Karuppiah","age":25},{"name":"Joseph","age":29},{"name":"Kevin","age":30}]
+
+$ cat dummy.json | jq '.[] | select(.name != "Kevin") | { personName: .name, personAge: .age}' | jq -s
+[
+  {
+    "personName": "Karuppiah",
+    "personAge": 25
+  },
+  {
+    "personName": "Joseph",
+    "personAge": 29
+  }
+]
+```
+
+Another way to do this would be to use `map` function along with `select`
+function
+
+```
+$ cat dummy.json | jq 'map(select(.name != "Kevin") | { personName: .name, personAge: .age})'
+[
+  {
+    "personName": "Karuppiah",
+    "personAge": 25
+  },
+  {
+    "personName": "Joseph",
+    "personAge": 29
+  }
+]
+```
