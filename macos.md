@@ -46,3 +46,20 @@ this by checking my disk usage using `Disk Utility` and `Storage Management`.
 Decrease it as much as possible to create more free disk space. The last time I
 tried to upgrade, I made sure I had at least 15 - 16 GB free disk space - that
 did the trick!
+
+8. MacOS Catalina tells me "xyz" cannot be opened because the developer
+cannot be verified. What do I do?
+
+For binaries / executables, that is command line programs, this is what
+I do in my terminal -
+
+```
+$ sudo xattr -d com.apple.quarantine <path-to-binary>
+```
+
+Apart from this, you can also go to `Security & Privacy` and then `General`
+and look for a message saying `"abc" was blocked from use because it is
+not from an identified developer` and there will be a button near it called
+`Allow Anyway` to allow the program. You can click this button to allow
+your program to run too! 
+
