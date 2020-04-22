@@ -63,3 +63,29 @@ not from an identified developer` and there will be a button near it called
 `Allow Anyway` to allow the program. You can click this button to allow
 your program to run too! 
 
+9. How to take screenshot of the whole screen?
+
+Use `Command + Shift + 3`
+
+10. How to take screenshot of a part of a screen?
+
+Use `Command + Shift + 4` and select the part of the screen you want to
+take screenshot of.
+
+11. How to take screenshot of a particular window?
+
+You can use the method mentioned in Q10 above, but it can be tedious to
+select the whole window yourself when you can use your computer's help.
+
+Use `Command + Shift + 4` first. Now you will see a cursor with a
+selection symbol. Now press `Space` and you will see the symbol
+turn into a camera symbol and when you hover over any window, that
+window will turn blue to show it's on focus, and then press `Enter`
+to take screenshot of the window.
+
+This takes the screenshot of the window so beautifully - the screenshot
+is padded with some background and the window has some shadow behind it
+to give an elevation like feel. And the whole window can be clearly
+seen, along with the title bar with close, minimize, full screen
+buttons. It's just pretty!
+
