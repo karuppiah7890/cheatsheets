@@ -89,3 +89,15 @@ to give an elevation like feel. And the whole window can be clearly
 seen, along with the title bar with close, minimize, full screen
 buttons. It's just pretty!
 
+12. How to do move around in a browser page in a page up and page down manner?
+More like scrolling one page at a time
+
+Use `Space` for down and `Shift + Space` for up in browsers and places wherever
+it works :P Or you can use `Fn + Down` for down and `Fn + Up` for up
+
+13. How to do delete function similar to windows delete key? That is, delete
+things in front of the cursor
+
+`delete` in MacOS works like `Backspace` in windows, yes - it deletes the
+characters behind the cursor. To delete characters in front of the cursor,
+use `Fn + delete` :)
