@@ -16,17 +16,58 @@ $ docker ps -a
 
 * How to start a stopped container?
 
+```
+$ docker start <container-id-or-name>
+```
+
 * How to stop a running container?
+
+```
+$ docker stop <container-id-or-name>
+```
 
 * How to remove a stopped container?
 
+```
+$ docker rm <container-id-or-name>
+```
+
 * How to remove a running container?
+
+```
+$ docker rm --force <container-id-or-name>
+$ # or
+$ docker rm -f <container-id-or-name>
+```
 
 * How to know all the images present in my machine?
 
+```
+$ docker images
+```
+
 * How to build images?
 
+```
+$ # uses Dockerfile in the directory where the command is being run
+$ docker build -t <image-tag> <dir>
+$ # to use a specific Dockerfile
+$ docker build -t <image-tag> -f <Dockerfile-path> <dir> 
+```
+
 * How to pull images from a docker registry?
+
+```
+$ # for pulling from docker hub
+$ docker pull <image-name>
+$ # examples for docker hub
+$ docker pull ubuntu
+$ docker pull karuppiah7890/utils
+$ # more generic docker pull
+$ docker pull <registry-host-with-port-if-any>/<image-name-path>:<image-tag>
+$ # another example
+$ docker pull my-private-artifactory.io:6555/karuppiah7890/utils:1.2
+```
 
 * How to push images to a docker registry?
 
