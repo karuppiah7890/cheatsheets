@@ -71,7 +71,28 @@ $ docker pull my-private-artifactory.io:6555/karuppiah7890/utils:1.2
 
 * How to push images to a docker registry?
 
+```
+$ # for pushing to docker hub
+$ docker push <image-name-path>
+$ # an example
+$ docker push karuppiah7890/utils
+$ # more generic push
+$ docker push <registry-host-with-port-if-any>/<image-name-path>:<image-tag>
+$ # another example
+$ docker push my-private-artifactory.io:6555/karuppiah7890/utils:1.2
+```
+
 * How to delete images in my machine?
+
+```
+$ docker image rm <image-id-or-image-name-with-tag>
+$ # examples
+$ docker image rm redis:5.0.7
+$ # removing the latest tag of ubuntu
+$ docker image rm ubuntu
+$ # image id
+$ docker image rm 4e5021d210f6 
+```
 
 * How to check the resource usage (CPU, Memory) of my containers?
 
@@ -91,4 +112,8 @@ $ docker stats
 
 * How to copy files from my local machine to container and vice versa?
 
+* How to execute a command inside a container?
+
+* How to get inside the container's shell? To check files, run commands
+and more, in an interactive manner
 
