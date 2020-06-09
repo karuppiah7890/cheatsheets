@@ -101,3 +101,20 @@ things in front of the cursor
 `delete` in MacOS works like `Backspace` in windows, yes - it deletes the
 characters behind the cursor. To delete characters in front of the cursor,
 use `Fn + delete` :)
+
+14. How to minimize window with keyboard shortcut?
+
+Usually the shortcut `Command + M` works in most MacOS applications.
+
+15. How to maximize window with keyboard shortcut?
+
+When there's window of the application and it's been minimized, you can use
+`Command + Tab` to focus on the application, and let go of the `Tab` key press
+after focussing on the application, but don't let go of the key press of
+`Command` while doing this, while having `Command` key pressed, press `Option`
+key too and then let go of the `Command` key to see the window get maximized.
+
+16. How to find the definition of a word in Spotlight using Dictionary app?
+
+Many results will be shown. To move to the definition, use `Command + L` to
+reach the definition result showing dictionary app result
