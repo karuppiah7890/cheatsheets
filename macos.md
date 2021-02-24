@@ -36,8 +36,8 @@ Use `Option + Right arrow` for navigating word by word to the right
 Use `Option + Left arrow` for navigating word by word to the left
 
 7. I try to update my Mac OS version using `Software Update` and click
-`Update Now`. It does restart, but it never updates or gives any error! Why is
-that?
+   `Update Now`. It does restart, but it never updates or gives any error! Why is
+   that?
 
 I have noticed this to happen some two times now. I suspected the disk storage
 space to be the issue - the OS not having enough free disk space in the system
@@ -48,7 +48,7 @@ tried to upgrade, I made sure I had at least 15 - 16 GB free disk space - that
 did the trick!
 
 8. MacOS Catalina tells me "xyz" cannot be opened because the developer
-cannot be verified. What do I do?
+   cannot be verified. What do I do?
 
 For binaries / executables, that is command line programs, this is what
 I do in my terminal -
@@ -58,10 +58,9 @@ $ sudo xattr -d com.apple.quarantine <path-to-binary>
 ```
 
 Apart from this, you can also go to `Security & Privacy` and then `General`
-and look for a message saying `"abc" was blocked from use because it is
-not from an identified developer` and there will be a button near it called
+and look for a message saying `"abc" was blocked from use because it is not from an identified developer` and there will be a button near it called
 `Allow Anyway` to allow the program. You can click this button to allow
-your program to run too! 
+your program to run too!
 
 9. How to take screenshot of the whole screen?
 
@@ -90,13 +89,13 @@ seen, along with the title bar with close, minimize, full screen
 buttons. It's just pretty!
 
 12. How to do move around in a browser page in a page up and page down manner?
-More like scrolling one page at a time
+    More like scrolling one page at a time
 
 Use `Space` for down and `Shift + Space` for up in browsers and places wherever
 it works :P Or you can use `Fn + Down` for down and `Fn + Up` for up
 
 13. How to do delete function similar to windows delete key? That is, delete
-things in front of the cursor
+    things in front of the cursor
 
 `delete` in MacOS works like `Backspace` in windows, yes - it deletes the
 characters behind the cursor. To delete characters in front of the cursor,
@@ -118,3 +117,46 @@ key too and then let go of the `Command` key to see the window get maximized.
 
 Many results will be shown. To move to the definition, use `Command + L` to
 reach the definition result showing dictionary app result
+
+17. How to go to home directory in the Finder App? How to go to home directory
+    in Finder browse popup window to choose files
+
+Open Finder App, do
+
+`Command + Shift + H`
+
+OR
+
+Menu > Go > Home (this is not possible in Finder browse popup window)
+
+Also, there are many folders under `Home` like `Downloads`, `Desktop` and many
+others which are shown on the left of the Finder App. We can go into them and
+then use
+
+`Command + Up Arrow`
+
+to go to parent directory which is in this case the `Home` directory
+
+18. How to go to parent directory of the current directory in Finder App?
+
+Use `Command + Up Arrow`
+
+19. How to go to any child directory of the current directory in Finder App?
+
+Double click using mouse
+
+OR
+
+Use `Command + Down Arrow`
+
+20. How to show / see the hidden files in Finder App? How to show / see hidden
+    files in Finder browse popup window to choose files?
+
+Use `Command + Shift + .`
+
+21. How to go to exact absolute path in Finder App? How to go to exact
+    absolute path in Finder browse popup window to choose files?
+
+Use `Command + Shift + G` and then type in or paste the absolute path. While
+typing you can use `Tab` to get suggestions in the form of a drop down! :)
+Finally click `Go` or press `Enter` and you will go to your destination path! :D
