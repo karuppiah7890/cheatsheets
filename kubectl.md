@@ -128,3 +128,10 @@ filters in it?
 * How to order pods by the time it started at? With recent ones coming at the
 bottom and the vice versa
 
+* How to find the API calls made by kubectl to the Kubernetes API server?
+
+Use higher number for the log verbosity in `kubectl`. For example use `-v 8` or more bigger numbers
+
+```bash
+$ kubectl describe node -v 8
+```
