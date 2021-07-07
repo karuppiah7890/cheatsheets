@@ -135,3 +135,21 @@ Use higher number for the log verbosity in `kubectl`. For example use `-v 8` or 
 ```bash
 $ kubectl describe node -v 8
 ```
+
+* How to remove / delete all the users in the kube config?
+
+```bash
+$ kubectl config get-users | xargs -I {} kubectl config delete-user {}
+```
+
+* How to remove / delete all the clusters in the kube config?
+
+```bash
+$ kubectl config get-clusters | xargs -I {} kubectl config delete-cluster {}
+```
+
+* How to remove / delete all the contexts in the kube config?
+
+```bash
+$ kubectl config get-contexts -o name | xargs -I {} kubectl config delete-context {}
+```

@@ -40,6 +40,12 @@ $ # or
 $ docker rm -f <container-id-or-name>
 ```
 
+* How to remove / delete all containers - including running and not running or other state containers?
+
+```bash
+$ docker ps -a -q | xargs docker rm -f
+```
+
 * How to know all the images present in my machine?
 
 ```bash
