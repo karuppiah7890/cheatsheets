@@ -92,3 +92,35 @@ karuppiah=# \conninfo
 You are connected to database "karuppiah" as user "karuppiah" on host "localhost" at port "5432".
 
 ```
+
+5. How do I find the server version?
+
+```
+select * from pg_settings where name='server_version';
+```
+
+Example -
+
+```
+postgres=# \x
+Expanded display is on.
+postgres=# select * from pg_settings where name='server_version';
+-[ RECORD 1 ]---+--------------------------
+name            | server_version
+setting         | 14.4
+unit            | 
+category        | Preset Options
+short_desc      | Shows the server version.
+extra_desc      | 
+context         | internal
+vartype         | string
+source          | default
+min_val         | 
+max_val         | 
+enumvals        | 
+boot_val        | 14.4
+reset_val       | 14.4
+sourcefile      | 
+sourceline      | 
+pending_restart | f
+```
