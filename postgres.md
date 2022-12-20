@@ -124,3 +124,92 @@ sourcefile      |
 sourceline      | 
 pending_restart | f
 ```
+
+6. Streaming Replication related SQL queries
+
+See https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-REPLICATION for current docs or https://www.postgresql.org/docs/14/functions-admin.html under `Replication Management Functions` section
+
+```sql
+select * from pg_replication_slots;
+```
+
+```sql
+select * from pg_stat_replication;
+```
+
+```sql
+-- the second argument is for "immediately_reserver"
+select pg_create_physical_replication_slot('replication_slot_name', true);
+```
+
+```sql
+-- advancing to current Log Sequence Number (LSN),
+-- assuming the slot has a restart_lsn defined or else it will error out saying
+-- ERROR:  replication slot "replication_slot_name" cannot be advanced
+-- DETAIL:  This slot has never previously reserved WAL, or it has been invalidated.
+select pg_replication_slot_advance('replication_slot_name', pg_current_wal_lsn());
+```
+
+```sql
+select pg_wal_lsn_diff(pg_current_wal_lsn(), (select restart_lsn from pg_replication_slots where slot_name='<replication_slot_name>'));
+```
+
+```sql
+select pg_current_wal_insert_lsn();
+```
+
+```sql
+select * from pg_stat_replication_slots;
+```
+
+```sql
+\sf pg_get_replication_slots
+```
+
+```sql
+\sf+ pg_get_replication_slots
+```
+
+```sql
+\sf pg_replication_slot_advance
+```
+
+```sql
+\sv pg_replication_slots
+```
+
+```sql
+\dv pg_replication_slots
+```
+
+```sql
+\dv+ pg_replication_slots
+```
+
+```sql
+SELECT * from pg_replication_slots WHERE active = False ORDER BY restart_lsn DESC;
+```
+
+```sql
+select pg_last_xact_replay_timestamp();
+```
+
+```sql
+select pg_last_wal_replay_lsn();
+```
+
+```sql
+select pg_last_wal_receive_lsn();
+```
+
+```sql
+select pg_is_wal_replay_paused();
+```
+
+```sql
+select pg_current_wal_flush_lsn();
+```
+
+```sql
+select pg_drop_replication_slot('<replication-slot-name>');
+```
